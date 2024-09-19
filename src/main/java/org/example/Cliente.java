@@ -1,10 +1,10 @@
 package org.example;
 
-public class Cliente {
+public abstract class Cliente {
 
     private String correo;
     private String contrasenia;
-    private double importe;
+    private double descuentos;
 
     public Cliente() {
     }
@@ -12,7 +12,7 @@ public class Cliente {
     public Cliente(String correo, String contrasenia, double importe) {
         this.correo = correo;
         this.contrasenia = contrasenia;
-        this.importe = importe;
+        this.descuentos = importe;
     }
 
     public String getCorreo() {
@@ -31,11 +31,11 @@ public class Cliente {
         this.contrasenia = contrasenia;
     }
 
-    public double getImporte() {
-        return importe;
+    public double getdescuentos() {
+        return descuentos;
     }
 
-    public void setImporte(double importe) {
-        this.importe = importe;
+    public void setdescuentos(double importe) {
+        this.descuentos = importe;
     }
 }

@@ -7,8 +7,8 @@ public class Anunciante extends Cliente {
     public Anunciante() {
     }
 
-    public Anunciante(String correo, String contrasenia, double importe, int num_anuncios) {
-        super(correo, contrasenia, importe);
+    public Anunciante(String correo, String contrasenia, double descuentos, int num_anuncios) {
+        super(correo, contrasenia, descuentos);
         this.num_anuncios = num_anuncios;
     }
 

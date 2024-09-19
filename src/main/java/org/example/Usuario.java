@@ -7,8 +7,8 @@ public class Usuario extends Cliente{
     public Usuario() {
     }
 
-    public Usuario(String correo, String contrasenia, double importe, boolean premium) {
-        super(correo, contrasenia, importe);
+    public Usuario(String correo, String contrasenia, double descuentos, boolean premium) {
+        super(correo, contrasenia, descuentos);
         this.premium = premium;
     }
 
