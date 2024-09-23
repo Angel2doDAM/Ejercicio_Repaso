@@ -8,6 +8,7 @@ public class Main {
     static int opcion = -1; //opción elegida del usuario
 
     public static void main(String[] args) {
+        String Correo;
         CRUDCliente crudCliente = new CRUDCliente();
         ArrayList<Usuario> lista = new ArrayList<>();
 
@@ -27,7 +28,7 @@ public class Main {
                 switch(opcion){
                     case 1:
                         System.out.println("Introduzca el correo de usuario:");
-                            String Correo = (scanner.nextLine());
+                            Correo = (scanner.nextLine());
                         System.out.println("Introduzca la ontraseña de " + Correo + ":");
                             String Contra = (scanner.nextLine());
                         System.out.println("Introduzca el descuento a realizar:");
@@ -52,10 +53,17 @@ public class Main {
                                 }
                             } while (opcion_premium != 1 && opcion_premium != 0);
                         Usuario usuario1 = new Usuario(Correo, Contra, descuento, premium);
-                        crudCliente.insertarCliente(lista, usuario1);
+                        if(crudCliente.insertarCliente(lista, usuario1)){
+                            System.out.println("El usuario ha sido añadido con éxito");
+                        } else {
+                            System.out.println("No pudo crearse el usuario");
+                        }
                         break;
 
                     case 2:
+                        System.out.println("Introduzca el correo de usuario a buscar:");
+                        Correo = (scanner.nextLine());
+                        crudCliente.buscarUsuarios(lista, Correo);
                         break;
                     case 3:
                         break;
