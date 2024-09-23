@@ -8,7 +8,6 @@ public class Main {
     static int opcion = -1; //opción elegida del usuario
 
     public static void main(String[] args) {
-        String Correo;
         CRUDCliente crudCliente = new CRUDCliente();
         ArrayList<Usuario> lista = new ArrayList<>();
 
@@ -27,46 +26,24 @@ public class Main {
                 //Ejemplo de switch case en Java
                 switch(opcion){
                     case 1:
-                        System.out.println("Introduzca el correo de usuario:");
-                            Correo = (scanner.nextLine());
-                        System.out.println("Introduzca la ontraseña de " + Correo + ":");
-                            String Contra = (scanner.nextLine());
-                        System.out.println("Introduzca el descuento a realizar:");
-                            double descuento = (scanner.nextDouble());
-                        System.out.println("¿Desea contratar la tarifa premium? (1=si / 0=no)");
-                            boolean premium = false;
-                            int opcion_premium;
-                            do {
-                                opcion_premium = (scanner.nextInt());
-                                switch (opcion_premium) {
-                                    case 1:
-                                        premium = true;
-                                        System.out.println("Version premium activada");
-                                        break;
-                                    case 0:
-                                        System.out.println("Version premium desactivada");
-                                        break;
-                                    default:
-                                        System.out.println("Creo que no lo ha entendido, es 1 o 2");
-                                        System.out.println("Pruebe de nuevo:");
-                                    break;
-                                }
-                            } while (opcion_premium != 1 && opcion_premium != 0);
-                        Usuario usuario1 = new Usuario(Correo, Contra, descuento, premium);
+                        Usuario usuario1 = new Usuario();
                         if(crudCliente.insertarCliente(lista, usuario1)){
-                            System.out.println("El usuario ha sido añadido con éxito");
+                            System.out.println("\nEl usuario ha sido añadido con éxito\n");
                         } else {
-                            System.out.println("No pudo crearse el usuario");
+                            System.out.println("\nNo pudo crearse el usuario\n");
                         }
                         break;
 
                     case 2:
                         System.out.println("Introduzca el correo de usuario a buscar:");
-                        Correo = (scanner.nextLine());
-                        crudCliente.buscarUsuarios(lista, Correo);
+                        String Correo2 = (scanner.nextLine());
+                        crudCliente.buscarUsuarios(lista, Correo2);
                         break;
+
                     case 3:
+                        crudCliente.totalIngresos(lista);
                         break;
+
                     case 0:
                         System.out.println("Adios!");
                         break;
