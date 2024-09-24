@@ -7,7 +7,7 @@ public class Main {
     static Scanner scanner = new Scanner(System.in); //Sirve para recoger texto por consola
     static int opcion = -1; //opción elegida del usuario
 
-    public static void main(String[] args) {gi
+    public static void main(String[] args) {
         CRUDCliente crudCliente = new CRUDCliente();
         ArrayList<Usuario> lista = new ArrayList<>();
 
