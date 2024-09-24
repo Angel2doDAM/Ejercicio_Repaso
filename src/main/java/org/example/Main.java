@@ -7,7 +7,7 @@ public class Main {
     static Scanner scanner = new Scanner(System.in); //Sirve para recoger texto por consola
     static int opcion = -1; //opción elegida del usuario
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {gi
         CRUDCliente crudCliente = new CRUDCliente();
         ArrayList<Usuario> lista = new ArrayList<>();
 
@@ -15,8 +15,8 @@ public class Main {
         while(opcion != 0){
             //Try catch para evitar que el programa termine si hay un error
             try{
-                System.out.println("Elige opción:\n" +
-                        "1.- Añadir Usuario\n" +
+                System.out.println("Elige opción:\n" + //prueba github
+                        "1.- Añadir Usuario aaaaa\n" +
                         "2.- Buscar Usuario\n" +
                         "3.- Total Ingresos\n" +
                         "0.- Salir");
