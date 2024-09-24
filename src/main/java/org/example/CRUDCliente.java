@@ -12,8 +12,6 @@ public class CRUDCliente {
         String Correo = (scanner.nextLine());
         System.out.println("Introduzca la ontraseña de " + Correo + ":");
         String Contra = (scanner.nextLine());
-        System.out.println("Introduzca el descuento a realizar:");
-        double descuento = (scanner.nextDouble());
         System.out.println("¿Desea contratar la tarifa premium? (1=si / 0=no)");
         boolean premium = false;
         int opcion_premium;
@@ -22,25 +20,40 @@ public class CRUDCliente {
             switch (opcion_premium) {
                 case 1:
                     premium = true;
-                    System.out.println("Version premium activada");
+                    System.out.println("Version premium activada\n");
                     break;
                 case 0:
-                    System.out.println("Version premium desactivada");
+                    System.out.println("Version premium desactivada\n");
                     break;
                 default:
                     System.out.println("Creo que no lo ha entendido, es 1 o 2");
                     System.out.println("Pruebe de nuevo:");
                     break;
             }
-            scanner.nextLine();//Si no recuerdas que lea texto, salta el catch
+
         } while (opcion_premium != 1 && opcion_premium != 0);
+        double comprobacion = premium ? 35.5 : 20.5;
+
+        System.out.println("Introduzca el descuento a realizar:");
+        double descuento = (scanner.nextDouble());
+
+        if (comprobacion - descuento <= 0) {
+            System.out.println("El descuento añadido no debe superar ni igualar el importe del usuario.");
+            System.out.println("Por favor, ingrese esta vez un descuento posible o se reducira este a 0");
+            descuento = (scanner.nextDouble());
+            if (comprobacion - descuento <= 0) {
+                System.out.println("Esta bien. \n DESCUENTO = 0");
+                descuento = 0;
+            }
+        }
+        scanner.nextLine();//Si no recuerdas que lea texto, salta el catch
         usu = new Usuario(Correo, Contra, descuento, premium);
 
         boolean realizado=false;
-        /*if(!lista.contains(usu)){
+        if(!lista.contains(usu)){
             realizado = true;
             lista.add(usu);
-        }*/
+        }
         for (Usuario usuario : lista){
 
         }
@@ -74,6 +87,6 @@ public class CRUDCliente {
                 totalPago = totalPago + (20.5 - usuario.getdescuentos());
             }
         }
-        System.out.println("El total de ingresos a recibir es de " +totalPago +"€");
+        System.out.println("El total de ingresos a recibir es de " +totalPago +"€\n");
     }
 }

@@ -1,6 +1,6 @@
 package org.example;
 
-public class Usuario extends Cliente{
+public class Usuario extends Cliente {
 
     private boolean premium;
 
@@ -18,5 +18,22 @@ public class Usuario extends Cliente{
 
     public void setPremium(boolean premium) {
         this.premium = premium;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Usuario usuario = (Usuario) obj;
+        return getCorreo().equals(usuario.getCorreo()); // Compara por correo
+    }
+
+    @Override
+    public int hashCode() {
+        return getCorreo().hashCode();
     }
 }
